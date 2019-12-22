@@ -1,7 +1,7 @@
 MCU=atmega328p
 FREQ=8000000UL
 
-default: firmware.hex
+default: firmware.hex size
 
 firmware.o: main.c
 	avr-gcc -g -Os -mmcu=${MCU} -DF_CPU=${FREQ} -o $@ -c $^
@@ -15,7 +15,10 @@ firmware.hex: firmware.elf
 program: firmware.hex
 	minipro -p ${MCU} -f ihex -w $<
 
+size: firmware.elf
+	avr-size --mcu=${MCU} -C $<
+
 clean:
 	rm -f firmware.o firmware.elf firmware.hex
 
-.PHONY: default program clean
+.PHONY: default program clean size
