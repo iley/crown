@@ -25,6 +25,6 @@ size: firmware.elf
 	avr-size --mcu=${MCU} -C $<
 
 clean:
-	rm -f firmware.o firmware.elf firmware.hex
+	rm -f ${OBJ} firmware.elf firmware.hex
 
 .PHONY: default program clean size fuses

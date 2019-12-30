@@ -1,6 +1,8 @@
 #ifndef _COLORS_H
 #define _COLORS_H
 
+#include <stdint.h>
+
 #define CLR_RED     ((uint8_t)0b001)
 #define CLR_GREEN   ((uint8_t)0b010)
 #define CLR_BLUE    ((uint8_t)0b100)
