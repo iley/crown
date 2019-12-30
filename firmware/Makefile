@@ -15,10 +15,13 @@ firmware.hex: firmware.elf
 program: firmware.hex
 	minipro -p ${MCU} -f ihex -w $<
 
+fuses:
+	minipro -p ${MCU} -c config -w fuses.txt
+
 size: firmware.elf
 	avr-size --mcu=${MCU} -C $<
 
 clean:
 	rm -f firmware.o firmware.elf firmware.hex
 
-.PHONY: default program clean size
+.PHONY: default program clean size fuses
