@@ -3,10 +3,12 @@ FREQ=8000000UL
 
 default: firmware.hex size
 
-firmware.o: main.c
-	avr-gcc -g -Os -mmcu=${MCU} -DF_CPU=${FREQ} -o $@ -c $^
+OBJ=main.o programs.o
 
-firmware.elf: firmware.o
+${OBJ}: %.o: %.c
+	avr-gcc -c -g -Os -mmcu=${MCU} -DF_CPU=${FREQ} -o $@ $^
+
+firmware.elf: ${OBJ}
 	avr-gcc -g -mmcu=${MCU} -o $@ $^
 
 firmware.hex: firmware.elf
@@ -14,6 +16,7 @@ firmware.hex: firmware.elf
 
 program: firmware.hex
 	minipro -p ${MCU} -f ihex -w $<
+	minipro -p ${MCU} -c config -w fuses.txt
 
 fuses:
 	minipro -p ${MCU} -c config -w fuses.txt
