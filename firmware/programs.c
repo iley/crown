@@ -31,23 +31,26 @@ program_t programs[] = {
         }
     },
     {
-        .len = 15,
+        .len = 18,
         .body = (uint8_t []){
               CLR_RED,         0,         0,         0,         0,         0,
                     0,   CLR_RED,         0,         0,         0,         0,
                     0,         0,   CLR_RED,         0,         0,         0,
                     0,         0,         0,   CLR_RED,         0,         0,
                     0,         0,         0,         0,   CLR_RED,         0,
+                    0,         0,         0,         0,         0,   CLR_RED,
              CLR_BLUE,         0,         0,         0,         0,         0,
                     0,  CLR_BLUE,         0,         0,         0,         0,
                     0,         0,  CLR_BLUE,         0,         0,         0,
                     0,         0,         0,  CLR_BLUE,         0,         0,
                     0,         0,         0,         0,  CLR_BLUE,         0,
+                    0,         0,         0,         0,         0,  CLR_BLUE,
             CLR_GREEN,         0,         0,         0,         0,         0,
                     0, CLR_GREEN,         0,         0,         0,         0,
                     0,         0, CLR_GREEN,         0,         0,         0,
                     0,         0,         0, CLR_GREEN,         0,         0,
                     0,         0,         0,         0, CLR_GREEN,         0,
+                    0,         0,         0,         0,         0, CLR_GREEN,
         }
     },
 };
